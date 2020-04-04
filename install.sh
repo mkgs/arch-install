@@ -27,6 +27,7 @@ PACSTRAP_PACKAGES=(
 
     base-devel
     python
+    python-pip
     python2
     git
     vim
