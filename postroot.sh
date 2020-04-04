@@ -35,7 +35,14 @@ useradd -m -G wheel $USER_NAME
 passwd $USER_NAME
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 
-mkdir .config && cd .config
-git clone git@github.com:mkgs/dotfiles.git
+git clone https://github.com/VundleVim/Vundle.vim.git /home/$USER_NAME/.vim/bundle/Vundle.vim
+mkdir /home/$USER_NAME/.config && cd /home/$USER_NAME/.config
+git clone https://github.com/mkgs/dotfiles.git
+cp dotfiles/.bashrc ../
+cp dotfiles/.bash_profile ../
+cp dotfiles/.bash_aliases ../
+cp dotfiles/.vimrc ../
+cp dotfiles/.xinitrc ../
+cp -r dotfiles/.config/ ../
 
 echo "Please exit and reboot"

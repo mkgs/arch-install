@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Prior to this, must connect to internet, partition+format disk
-# Run this script like bash <(curl -s URL)
+# Run this script like bash <(curl -Ls URL)
 
 echo "///// Arch install helper"
 echo "This script assumes you've already connected to internet and partitioned the disk!!"
@@ -16,6 +16,7 @@ PACSTRAP_PACKAGES=(
     netctl
     dialog
     wpa_supplicant
+    openssh
 
     base-devel
     python
@@ -94,4 +95,6 @@ fi
 mount /dev/$INSTALL_PARTITION /mnt
 pacstrap /mnt ${PACSTRAP_PACKAGES[@]}
 genfstab -U /mnt >> /mnt/etc/fstab
+echo "Chrooting to /mnt - please run postroot script"
 arch-chroot /mnt
+
