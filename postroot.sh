@@ -58,6 +58,6 @@ echo "Disabling low-level logging messages..."
 echo "kernel.printk = 3 4 1 3" >> /etc/sysctl.conf
 
 echo "If you need to change the GRUB config, edit /etc/default/grub"
-echo "and then grub-mkconfig -o /boot/grub/grub.cfg
+echo "and then grub-mkconfig -o /boot/grub/grub.cfg"
 
 echo "Please exit and reboot"
