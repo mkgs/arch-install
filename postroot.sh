@@ -8,6 +8,17 @@ if [ $INSTALL_GRUB = "y" ]; then
     read -p "Grub Partition (e.g. sda): " GRUB_PARTITION
     grub-install --target=i386-pc /dev/$GRUB_PARTITION
     grub-mkconfig -o /boot/grub/grub.cfg
+else
+    read -p "Install grub to EFI? (y/n): " INSTALL_GRUB
+    if [ $INSTALL_GRUB = "y" ]; then
+        pacman -S grub efibootmgr dosfstools
+        read -p "EFI Partition: " EFI_PARTITION
+        mkdir efi
+        mkfs.fat -F32 /dev/$EFI_PARTITION
+        mount /dev/$EFI_PARTITION /efi
+        grub-install --target=x86_64-efi --efi-directory=efi --bootloader=GRUB
+        grub-mkconfig -o /boot/grub/grub.cfg
+    fi
 fi
 
 echo "Setting timezone..."

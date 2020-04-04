@@ -17,6 +17,9 @@ PACSTRAP_PACKAGES=(
     dialog
     wpa_supplicant
     openssh
+    wireless_tools
+    iw
+    dhcpcd
 
     base-devel
     python
@@ -31,6 +34,7 @@ PACSTRAP_PACKAGES=(
     xorg-xinit
     i3
     termite
+    xterm
 
     curl
     wget
