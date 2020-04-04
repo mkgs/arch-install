@@ -36,6 +36,8 @@ PACSTRAP_PACKAGES=(
     jdk-openjdk
     nodejs
     npm
+    redis
+    postgresql
 
     xorg
     xorg-xinit
@@ -62,6 +64,7 @@ PACSTRAP_PACKAGES=(
 
 AUDIO_PACKAGES=(
     vlc
+    alsa-utils
 )
 
 BROWSER_PACKAGES=(

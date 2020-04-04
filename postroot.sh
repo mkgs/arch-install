@@ -7,6 +7,10 @@ if [ $INSTALL_GRUB = "y" ]; then
     pacman -S grub
     read -p "Grub Partition (e.g. sda): " GRUB_PARTITION
     grub-install --target=i386-pc /dev/$GRUB_PARTITION
+    read -p "Rename wireless interface to wlan0? (y/n): " RENAME_WLAN
+    if [ $RENAME_WLAN = "y" ]; then
+        sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="net.ifnames=0"/' /etc/default/grub
+    fi
     grub-mkconfig -o /boot/grub/grub.cfg
 else
     read -p "Install grub to EFI? (y/n): " INSTALL_GRUB
@@ -17,6 +21,10 @@ else
         mkfs.fat -F32 /dev/$EFI_PARTITION
         mount /dev/$EFI_PARTITION /efi
         grub-install --target=x86_64-efi --efi-directory=efi --bootloader=GRUB
+        read -p "Rename wireless interface to wlan0? (y/n): " RENAME_WLAN
+        if [ $RENAME_WLAN = "y" ]; then
+            sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="net.ifnames=0"/' /etc/default/grub
+        fi
         grub-mkconfig -o /boot/grub/grub.cfg
     fi
 fi
@@ -49,7 +57,7 @@ echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 echo "Disabling low-level logging messages..."
 echo "kernel.printk = 3 4 1 3" >> /etc/sysctl.conf
 
-echo "If wireless interface device name is long, consider adding net.ifnames=0 to GRUB_CMDLINE_LINUX in /etc/default/grub"
+echo "If you need to change the GRUB config, edit /etc/default/grub"
 echo "and then grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "Please exit and reboot"
