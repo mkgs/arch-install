@@ -24,6 +24,8 @@ echo "Copying bash config..."
 cp dotfiles/.bash_profile ../
 cp dotfiles/.bashrc ../
 cp dotfiles/.xinitrc ../
+cp dotfiles/runhack ../
+chmod +x ../runhack
 
 echo "Installing Heroku CLI..."
 sudo npm install -g heroku
