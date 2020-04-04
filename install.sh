@@ -33,8 +33,14 @@ PACSTRAP_PACKAGES=(
     xorg
     xorg-xinit
     i3
+    dmenu
     termite
     xterm
+    tamsyn-font
+    terminus-font
+    noto-fonts
+    gnu-free-fonts
+    noto-fonts-cjk
 
     curl
     wget
