@@ -13,8 +13,8 @@ echo "Copying vim config..."
 cp ~/.config/dotfiles/.vimrc ~/
 cp -r ~/.config/dotfiles/.vim ~/
 echo "Copying i3 config..."
-cp -r ~/.config/dotfiles/.config/i3 ~/
-cp -r ~/.config/dotfiles/.config/i3status ~/
+cp -r ~/.config/dotfiles/.config/i3 ~/.config/
+cp -r ~/.config/dotfiles/.config/i3status ~/.config/
 read -p "i3 gaps? (y/n): " I3_GAPS
 if [ $I3_GAPS = "n" ]; then
     sed -i 's/gaps inner 45/gaps inner 0/' ~/.config/i3/config
@@ -25,6 +25,9 @@ cp ~/.config/dotfiles/.bashrc ~/
 cp ~/.config/dotfiles/.xinitrc ~/
 cp ~/.config/dotfiles/runhack ~/
 chmod +x ~/runhack
+
+echo "Copying termite config..."
+cp -r ~/.config/dotfiles/.config/termite ~/.config
 
 echo "Installing Heroku CLI..."
 sudo npm install -g heroku
