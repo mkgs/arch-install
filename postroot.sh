@@ -46,10 +46,10 @@ useradd -m -G wheel $USER_NAME
 passwd $USER_NAME
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 
-git clone https://github.com/VundleVim/Vundle.vim.git /home/$USER_NAME/.vim/bundle/Vundle.vim
-mkdir /home/$USER_NAME/.config && cd /home/$USER_NAME/.config
-git clone https://github.com/mkgs/dotfiles.git
-cp dotfiles/.vimrc ../
-cp -r dotfiles/.config/ ../
+echo "Disabling low-level logging messages..."
+echo "kernel.printk = 3 4 1 3" >> /etc/sysctl.conf
+
+echo "If wireless interface device name is long, consider adding net.ifnames=0 to GRUB_CMDLINE_LINUX in /etc/default/grub"
+echo "and then grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "Please exit and reboot"
