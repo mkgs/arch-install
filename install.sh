@@ -28,6 +28,7 @@ PACSTRAP_PACKAGES=(
     jdk-openjdk
 
     xorg
+    xorg-xinit
     i3
     termite
 

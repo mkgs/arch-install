@@ -38,11 +38,7 @@ echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 git clone https://github.com/VundleVim/Vundle.vim.git /home/$USER_NAME/.vim/bundle/Vundle.vim
 mkdir /home/$USER_NAME/.config && cd /home/$USER_NAME/.config
 git clone https://github.com/mkgs/dotfiles.git
-cp dotfiles/.bashrc ../
-cp dotfiles/.bash_profile ../
-cp dotfiles/.bash_aliases ../
 cp dotfiles/.vimrc ../
-cp dotfiles/.xinitrc ../
 cp -r dotfiles/.config/ ../
 
 echo "Please exit and reboot"
