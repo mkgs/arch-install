@@ -53,6 +53,7 @@ PACSTRAP_PACKAGES=(
     noto-fonts
     gnu-free-fonts
     noto-fonts-cjk
+    ttf-hack
 
     curl
     wget
