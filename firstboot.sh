@@ -22,9 +22,13 @@ fi
 echo "Copying bash config..."
 cp ~/.config/dotfiles/.bash_profile ~/
 cp ~/.config/dotfiles/.bashrc ~/
-cp ~/.config/dotfiles/.xinitrc ~/
 cp ~/.config/dotfiles/runhack ~/
 chmod +x ~/runhack
+
+read -p "Are you using a DM? (y/n): " DM_CONFIG
+if [ $DM_CONFIG = "n" ]; then
+    cp ~/.config/dotfiles/.xinitrc ~/
+fi
 
 echo "Copying termite config..."
 cp -r ~/.config/dotfiles/.config/termite ~/.config
