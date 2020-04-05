@@ -39,6 +39,8 @@ PACSTRAP_PACKAGES=(
     npm
     redis
     postgresql
+    memcached
+    libmemcached
 
     xorg
     xorg-xinit
@@ -67,6 +69,9 @@ PACSTRAP_PACKAGES=(
 AUDIO_PACKAGES=(
     vlc
     alsa-utils
+    mpd
+    ncmpcpp
+    mplayer
 )
 
 BROWSER_PACKAGES=(
@@ -88,11 +93,21 @@ INTEL_PACKAGES=(
     xf86-video-intel
 )
 
+IVY_PACKAGES=(
+    vulkan-intel
+)
+
+MICROCODE_PACKAGES=(
+    intel-ucode
+)
+
 read -p "Install graphical browsers? (y/n): " INSTALL_BROWSERS
 read -p "Install LibreOffice? (y/n): " INSTALL_LIBRE
 read -p "Install audio packages? (y/n): " INSTALL_AUDIO
 read -p "Install media software? (y/n): " INSTALL_MEDIA
 read -p "Install Intel graphics? (y/n): " INSTALL_INTEL
+read -p "Install modern Intel drivers? (y/n): " INSTALL_IVY
+read -p "Install Intel microcode updates? (y/n): "INSTALL_MICROCODE
 
 if [ $INSTALL_BROWSERS = "y" ]; then
     PACSTRAP_PACKAGES+=("${BROWSER_PACKAGES[@]}")
@@ -112,6 +127,14 @@ fi
 
 if [ $INSTALL_INTEL = "y" ]; then
     PACSTRAP_PACKAGES+=("${INTEL_PACKAGES[@]}")
+fi
+
+if [ $INSTALL_IVY = "y" ]; then
+    PACSTRAP_PACKAGES+=("${IVY_PACKAGES[@]}")
+fi
+
+if [ $INSTALL_MICROCODE = "y" ]; then
+    PACSTRAP_PACKAGES+=("${MICROCODE_PACKAGES[@]}")
 fi
 
 read -p "Set up swap partition? (y/n): " SETUP_SWAP

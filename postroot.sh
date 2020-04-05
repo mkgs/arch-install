@@ -54,8 +54,12 @@ useradd -m -G wheel $USER_NAME
 passwd $USER_NAME
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 
-echo "Disabling low-level logging messages..."
-echo "kernel.printk = 3 4 1 3" >> /etc/sysctl.conf
+read -p "Install display manager? (y/n): " INSTALL_DM
+
+if [ $INSTALL_DM = "y" ]; then
+    pacman -S xorg-xdm
+    systemctl enable xdm.service
+fi
 
 echo "If you need to change the GRUB config, edit /etc/default/grub"
 echo "and then grub-mkconfig -o /boot/grub/grub.cfg"
