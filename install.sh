@@ -107,7 +107,7 @@ read -p "Install audio packages? (y/n): " INSTALL_AUDIO
 read -p "Install media software? (y/n): " INSTALL_MEDIA
 read -p "Install Intel graphics? (y/n): " INSTALL_INTEL
 read -p "Install modern Intel drivers? (y/n): " INSTALL_IVY
-read -p "Install Intel microcode updates? (y/n): "INSTALL_MICROCODE
+read -p "Install Intel microcode updates? (y/n): " INSTALL_MICROCODE
 
 if [ $INSTALL_BROWSERS = "y" ]; then
     PACSTRAP_PACKAGES+=("${BROWSER_PACKAGES[@]}")
