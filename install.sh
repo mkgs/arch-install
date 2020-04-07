@@ -74,6 +74,14 @@ AUDIO_PACKAGES=(
     mplayer
 )
 
+CODEC_PACKAGES=(
+    x265
+    x264
+    libmpeg2
+    xvidcore
+    dav1d
+    libvpx
+
 BROWSER_PACKAGES=(
     firefox
     chromium
@@ -104,6 +112,7 @@ MICROCODE_PACKAGES=(
 read -p "Install graphical browsers? (y/n): " INSTALL_BROWSERS
 read -p "Install LibreOffice? (y/n): " INSTALL_LIBRE
 read -p "Install audio packages? (y/n): " INSTALL_AUDIO
+read -p "Install codecs? (y/n): " INSTALL_CODECS
 read -p "Install media software? (y/n): " INSTALL_MEDIA
 read -p "Install Intel graphics? (y/n): " INSTALL_INTEL
 read -p "Install modern Intel drivers? (y/n): " INSTALL_IVY
@@ -119,6 +128,10 @@ fi
 
 if [ $INSTALL_AUDIO = "y" ]; then
     PACSTRAP_PACKAGES+=("${AUDIO_PACKAGES[@]}")
+fi
+
+if [ $INSTALL_CODECS = "y" ]; then
+    PACSTRAP_PACKAGES+=("${CODEC_PACKAGES[@]}")
 fi
 
 if [ $INSTALL_MEDIA = "y" ]; then
