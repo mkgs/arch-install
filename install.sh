@@ -81,6 +81,7 @@ CODEC_PACKAGES=(
     xvidcore
     dav1d
     libvpx
+)
 
 BROWSER_PACKAGES=(
     firefox
