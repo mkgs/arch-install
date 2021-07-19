@@ -49,7 +49,7 @@ PACSTRAP_PACKAGES=(
     xorg-xmodmap
     i3
     dmenu
-    termite
+#    termite -- moved to AUR
     xterm
     tamsyn-font
     terminus-font
