@@ -12,7 +12,8 @@ cp -r ~/code/dotfiles/.vim ~/
 echo "Copying i3 config..."
 cp -r ~/code/dotfiles/.config/i3 ~/.config/
 cp -r ~/code/dotfiles/.config/i3status ~/.config/
-
+echo "Copying tmux config..."
+cp -r ~/code/dotfiles/.config/tmux ~/.config/
 echo "Copying bash config..."
 cp ~/code/dotfiles/.bash_profile ~/
 cp ~/code/dotfiles/.bashrc ~/
