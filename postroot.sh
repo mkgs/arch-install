@@ -53,6 +53,7 @@ read -p "Username: " USER_NAME
 useradd -m -G wheel $USER_NAME
 passwd $USER_NAME
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
+usermod -aG docker $USER_NAME
 
 read -p "Install display manager? (y/n): " INSTALL_DM
 
@@ -60,6 +61,8 @@ if [ $INSTALL_DM = "y" ]; then
     pacman -S xorg-xdm
     systemctl enable xdm.service
 fi
+
+systemctl enable docker.service
 
 echo "If you need to change the GRUB config, edit /etc/default/grub"
 echo "and then grub-mkconfig -o /boot/grub/grub.cfg"

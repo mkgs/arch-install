@@ -12,14 +12,12 @@ PACSTRAP_PACKAGES=(
     base
     linux
     linux-firmware
+    sof-firmware
 
-    netctl
-    dialog
-    wpa_supplicant
     openssh
-    wireless_tools
     iw
-    dhcpcd
+    networkmanager
+    network-manager-applet
 
     tar
     zip
@@ -27,20 +25,11 @@ PACSTRAP_PACKAGES=(
 
     base-devel
     python
-    python-pip
-    python2
     git
     vim
-    lua
-    perl
-    go
-    jdk-openjdk
-    nodejs
     npm
-    redis
-    postgresql
-    memcached
-    libmemcached
+    docker
+    docker-compose
 
     xorg
     xorg-xinit
@@ -51,12 +40,14 @@ PACSTRAP_PACKAGES=(
     dmenu
     alacritty
     xterm
-    tamsyn-font
-    terminus-font
     noto-fonts
-    gnu-free-fonts
     noto-fonts-cjk
+    noto-fonts-emoji
+    gnu-free-fonts
     ttf-hack
+    ttf-cascadia-code
+    ttf-fira-code
+    ttf-fira-mono
 
     curl
     wget
@@ -64,14 +55,12 @@ PACSTRAP_PACKAGES=(
     mc
     ranger
     htop
+    btop
 )
 
 AUDIO_PACKAGES=(
     vlc
     alsa-utils
-    mpd
-    ncmpcpp
-    mplayer
 )
 
 CODEC_PACKAGES=(
