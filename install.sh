@@ -15,6 +15,7 @@ PACSTRAP_PACKAGES=(
     sof-firmware
 
     openssh
+    openvpn
     iw
     networkmanager
     network-manager-applet
@@ -36,6 +37,7 @@ PACSTRAP_PACKAGES=(
     xbindkeys
     xorg-xrdb
     xorg-xmodmap
+    tmux
     i3
     dmenu
     alacritty
@@ -91,6 +93,11 @@ INTEL_PACKAGES=(
     xf86-video-intel
 )
 
+OLD_INTEL_PACKAGES=(
+    mesa-amber
+    xf86-video-intel
+)
+
 IVY_PACKAGES=(
     vulkan-intel
 )
@@ -104,6 +111,7 @@ read -p "Install LibreOffice? (y/n): " INSTALL_LIBRE
 read -p "Install audio packages? (y/n): " INSTALL_AUDIO
 read -p "Install codecs? (y/n): " INSTALL_CODECS
 read -p "Install media software? (y/n): " INSTALL_MEDIA
+read -p "Install OLD Intel graphics? (y/n): " INSTALL_OLD_INTEL
 read -p "Install Intel graphics? (y/n): " INSTALL_INTEL
 read -p "Install modern Intel drivers? (y/n): " INSTALL_IVY
 read -p "Install Intel microcode updates? (y/n): " INSTALL_MICROCODE
@@ -126,6 +134,10 @@ fi
 
 if [ $INSTALL_MEDIA = "y" ]; then
     PACSTRAP_PACKAGES+=("${MEDIA_PACKAGES[@]}")
+fi
+
+if [ $INSTALL_OLD_INTEL = "y" ]; then
+    PACSTRAP_PACKAGES+=("${OLD_INTEL_PACKAGES[@]}")
 fi
 
 if [ $INSTALL_INTEL = "y" ]; then
