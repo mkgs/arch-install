@@ -63,6 +63,7 @@ if [ $INSTALL_DM = "y" ]; then
 fi
 
 systemctl enable docker.service
+systemctl enable NetworkManager.service
 
 echo "If you need to change the GRUB config, edit /etc/default/grub"
 echo "and then grub-mkconfig -o /boot/grub/grub.cfg"
