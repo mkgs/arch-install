@@ -39,6 +39,7 @@ PACSTRAP_PACKAGES=(
     xorg-xmodmap
     tmux
     i3
+    unclutter
     redshift
     dmenu
     alacritty
