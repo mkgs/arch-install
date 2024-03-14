@@ -65,6 +65,7 @@ PACSTRAP_PACKAGES=(
 AUDIO_PACKAGES=(
     vlc
     alsa-utils
+    pulseaudio
 )
 
 CODEC_PACKAGES=(
@@ -76,9 +77,16 @@ CODEC_PACKAGES=(
     libvpx
 )
 
+BLUETOOTH_PACKAGES=(
+    pulseaudio-bluetooth
+    bluez
+    bluez-utils
+)
+
 BROWSER_PACKAGES=(
     firefox
     chromium
+    qutebrowser
 )
 
 MEDIA_PACKAGES=(
@@ -111,6 +119,7 @@ MICROCODE_PACKAGES=(
 read -p "Install graphical browsers? (y/n): " INSTALL_BROWSERS
 read -p "Install LibreOffice? (y/n): " INSTALL_LIBRE
 read -p "Install audio packages? (y/n): " INSTALL_AUDIO
+read -p "Install bluetooth packages? (y/n): " INSTALL_BLUETOOTH
 read -p "Install codecs? (y/n): " INSTALL_CODECS
 read -p "Install media software? (y/n): " INSTALL_MEDIA
 read -p "Install OLD Intel graphics? (y/n): " INSTALL_OLD_INTEL
@@ -128,6 +137,11 @@ fi
 
 if [ $INSTALL_AUDIO = "y" ]; then
     PACSTRAP_PACKAGES+=("${AUDIO_PACKAGES[@]}")
+fi
+
+if [ $INSTALL_BLUETOOTH = "y" ]; then
+    PACSTRAP_PACKAGES+=("${BLUETOOTH_PACKAGES[@]}")
+    echo "Installing bluetooth packages. Start/enable bluetooth.service and control using bluetoothctl"
 fi
 
 if [ $INSTALL_CODECS = "y" ]; then

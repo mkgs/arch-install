@@ -17,6 +17,8 @@ cp -r ~/code/dotfiles/.config/tmux ~/.config/
 echo "Copying bash config..."
 cp ~/code/dotfiles/.bash_profile ~/
 cp ~/code/dotfiles/.bashrc ~/
+echo "Copying qutebrowser config..."
+cp ~/code/dotfiles/.config/qutebrowser ~/.config/
 
 read -p "Are you using a DM? (y/n): " DM_CONFIG
 if [ $DM_CONFIG = "n" ]; then
