@@ -60,6 +60,9 @@ PACSTRAP_PACKAGES=(
     ranger
     htop
     btop
+
+    bat
+    fzf
 )
 
 AUDIO_PACKAGES=(
