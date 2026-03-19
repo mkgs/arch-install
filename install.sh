@@ -63,6 +63,8 @@ PACSTRAP_PACKAGES=(
 
     bat
     fzf
+    ripgrep
+    ast-grep
 )
 
 AUDIO_PACKAGES=(
