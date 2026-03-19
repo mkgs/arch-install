@@ -71,6 +71,7 @@ AUDIO_PACKAGES=(
     vlc
     alsa-utils
     pulseaudio
+    pulsemixer
 )
 
 CODEC_PACKAGES=(
