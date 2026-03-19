@@ -13,6 +13,7 @@ PACSTRAP_PACKAGES=(
     linux
     linux-firmware
     sof-firmware
+    pacman-contrib
 
     openssh
     openvpn
