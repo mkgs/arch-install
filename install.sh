@@ -32,12 +32,14 @@ PACSTRAP_PACKAGES=(
     npm
     docker
     docker-compose
+    luarocks
 
     xorg
     xorg-xinit
     xbindkeys
     xorg-xrdb
     xorg-xmodmap
+    xclip
     tmux
     i3
     unclutter
